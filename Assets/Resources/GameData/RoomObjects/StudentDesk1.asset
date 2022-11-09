@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41bc9b24047ae85429a00f0eca0adaf7, type: 3}
+  m_Name: StudentDesk1
+  m_EditorClassIdentifier: 
+  RoomTypes:
+  - {fileID: 11400000, guid: e7df3e307aad4e84a8d8deb99a9204ff, type: 2}
+  RoomObjectType: {fileID: 11400000, guid: 800367ff936eefc4fa1079d792ec6143, type: 2}
+  RoomObjectPrefab: {fileID: 8776504285597142193, guid: 9da4e0632c19f3547a38899142637178,
+    type: 3}
+  RoomObjectName: Student Desk
+  RoomObjectSprite: {fileID: 0}
