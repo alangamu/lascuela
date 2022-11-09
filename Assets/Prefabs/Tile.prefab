@@ -1024,6 +1024,7 @@ GameObject:
   - component: {fileID: 4384170172323337277}
   - component: {fileID: 1702999999998877314}
   - component: {fileID: 7136544839313488678}
+  - component: {fileID: 3518953471821294848}
   m_Layer: 0
   m_Name: Tile
   m_TagString: Untagged
@@ -1141,6 +1142,22 @@ MonoBehaviour:
   _activeRoomObject: {fileID: 11400000, guid: ba8b2f5a0658e1e419a4ef61577b1060, type: 2}
   _nextRoomObjectActivationEvent: {fileID: 11400000, guid: 24337eb98955ab54ab08c8c80cca6919,
     type: 2}
+--- !u!114 &3518953471821294848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6542690619073549192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 927558d3c3d769042b10bbab43cbe29e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _setActiveRoomTypeEvent: {fileID: 11400000, guid: 28916a0787c48924e97a811e2f8bb2db,
+    type: 2}
+  _doorFrameInteriorMesh: {fileID: 2036761692952756748}
+  _doorFrameExteriorMesh: {fileID: 8514973081537525161}
 --- !u!1 &6948118464117966222
 GameObject:
   m_ObjectHideFlags: 0

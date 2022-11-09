@@ -2,8 +2,6 @@
 using Lascuela.Scripts.ScriptableObjects;
 using Lascuela.Scripts.ScriptableObjects.Events;
 using Lascuela.Scripts.ScriptableObjects.Variables;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Lascuela.Scripts
