@@ -11,8 +11,6 @@ GameObject:
   - component: {fileID: 7191255225007090135}
   - component: {fileID: 1755085098167386654}
   - component: {fileID: 1355865561498740119}
-  - component: {fileID: 2795660170760114537}
-  - component: {fileID: 7247069574103855033}
   m_Layer: 0
   m_Name: SM_Prop_Toilet_01 (1)
   m_TagString: Untagged
@@ -88,34 +86,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &2795660170760114537
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 888461584874348933}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 43899446573108704, guid: 447d7ac69aeb835468338d7afdf50e05, type: 2}
---- !u!64 &7247069574103855033
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 888461584874348933}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 43248754954700842, guid: 447d7ac69aeb835468338d7afdf50e05, type: 2}
 --- !u!1 &1394927017013060314
 GameObject:
   m_ObjectHideFlags: 0
@@ -246,7 +216,6 @@ GameObject:
   - component: {fileID: 4980166464465414781}
   - component: {fileID: 5002071918508054031}
   - component: {fileID: 4990216816238545621}
-  - component: {fileID: 5040866882443353335}
   m_Layer: 0
   m_Name: SM_Prop_Toilet_Paper_01
   m_TagString: Untagged
@@ -319,20 +288,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &5040866882443353335
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4978403305510129851}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 43576524286665054, guid: 4ead54fc375c4754aaa04386438f8079, type: 2}
 --- !u!1 &5019261799437897100
 GameObject:
   m_ObjectHideFlags: 0
@@ -427,8 +382,6 @@ GameObject:
   - component: {fileID: 5025515201612871820}
   - component: {fileID: 5033784001150131504}
   - component: {fileID: 5042537628705936132}
-  - component: {fileID: 4993839258414638988}
-  - component: {fileID: 4992951193711875036}
   m_Layer: 0
   m_Name: SM_Prop_Toilet_01
   m_TagString: Untagged
@@ -504,34 +457,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &4993839258414638988
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5020088366222414000}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 43899446573108704, guid: 447d7ac69aeb835468338d7afdf50e05, type: 2}
---- !u!64 &4992951193711875036
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5020088366222414000}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 43248754954700842, guid: 447d7ac69aeb835468338d7afdf50e05, type: 2}
 --- !u!1 &5020341220656177290
 GameObject:
   m_ObjectHideFlags: 0
@@ -792,9 +717,6 @@ GameObject:
   - component: {fileID: 8262493918488830543}
   - component: {fileID: 8277046985657184763}
   - component: {fileID: 8284346204390931651}
-  - component: {fileID: 8236486372119531579}
-  - component: {fileID: 8237061915316286229}
-  - component: {fileID: 8233461490750409289}
   m_Layer: 0
   m_Name: SM_Prop_ToiletStalls_01
   m_TagString: Untagged
@@ -869,45 +791,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8236486372119531579
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8260061526245895141}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.12327337, y: 2.2, z: 1.5381345}
-  m_Center: {x: -0.013363361, y: 1.1, z: 0.7690672}
---- !u!65 &8237061915316286229
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8260061526245895141}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.06972957, y: 2.2, z: 1.5381345}
-  m_Center: {x: 0.99249756, y: 1.1, z: 0.7690672}
---- !u!65 &8233461490750409289
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8260061526245895141}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.12327337, y: 2.2, z: 1.5381345}
-  m_Center: {x: 2, y: 1.1, z: 0.7690672}
 --- !u!1 &8260390019013646759
 GameObject:
   m_ObjectHideFlags: 0
@@ -919,7 +802,6 @@ GameObject:
   - component: {fileID: 8265767442936081765}
   - component: {fileID: 8276977165242043157}
   - component: {fileID: 8283309176867149925}
-  - component: {fileID: 8236085642243617709}
   m_Layer: 0
   m_Name: SM_Prop_ToiletStalls_01_Door_01
   m_TagString: Untagged
@@ -992,19 +874,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8236085642243617709
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8260390019013646759}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.85, y: 1.9091988, z: 0.14532822}
-  m_Center: {x: 0.42499995, y: 1.208415, z: -0.004956741}
 --- !u!1 &8260572509979087219
 GameObject:
   m_ObjectHideFlags: 0
@@ -1016,7 +885,6 @@ GameObject:
   - component: {fileID: 8265742339272419689}
   - component: {fileID: 8273151684504405699}
   - component: {fileID: 8284147770398533019}
-  - component: {fileID: 8236231261832426871}
   m_Layer: 0
   m_Name: SM_Prop_ToiletStalls_01_Door_02
   m_TagString: Untagged
@@ -1089,19 +957,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8236231261832426871
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8260572509979087219}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.85, y: 1.9091988, z: 0.14532822}
-  m_Center: {x: 0.42499995, y: 1.208415, z: -0.004956741}
 --- !u!1 &8366357520082651239
 GameObject:
   m_ObjectHideFlags: 0
@@ -1196,7 +1051,6 @@ GameObject:
   - component: {fileID: 2928896293912228625}
   - component: {fileID: 7919887375254139484}
   - component: {fileID: 4252491895617932947}
-  - component: {fileID: 1547077552541507447}
   m_Layer: 0
   m_Name: SM_Prop_Toilet_Paper_01 (1)
   m_TagString: Untagged
@@ -1269,17 +1123,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &1547077552541507447
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8767188127711472870}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 43576524286665054, guid: 4ead54fc375c4754aaa04386438f8079, type: 2}

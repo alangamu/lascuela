@@ -13,5 +13,6 @@ namespace Lascuela.Scripts.ScriptableObjects
         public Sprite RoomObjectSprite;
         public bool IsRotatingWithWall;
         public bool IsHidingWall;
+        public bool IsDoor;
     }
 }

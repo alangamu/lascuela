@@ -7,7 +7,7 @@ namespace Lascuela.Scripts.Interfaces
         event Action OnShowWallPreview;
         event Action OnShowDoorPreview;
         event Action OnClearWallPreview;
-        event Action OnDoorFrameRotation;
+        event Action<int> OnDoorFrameRotation;
         int X { get; }
         int Z { get; }
         bool IsSelected { get; }
@@ -18,6 +18,6 @@ namespace Lascuela.Scripts.Interfaces
         void ShowDoorFramePreview();
         void ClearWallPreview();
         void SetHasWall(bool hasWall);
-        void DoorFrameRotate();
+        void DoorFrameRotate(int rotationIndex);
     }
 }

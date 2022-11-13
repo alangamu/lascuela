@@ -10,7 +10,7 @@ namespace Lascuela.Scripts
         public event Action OnShowWallPreview;
         public event Action OnClearWallPreview;
         public event Action OnShowDoorPreview;
-        public event Action OnDoorFrameRotation;
+        public event Action<int> OnDoorFrameRotation;
 
         public int X { get; private set; }
         public int Z { get; private set; }
@@ -70,9 +70,9 @@ namespace Lascuela.Scripts
             OnShowDoorPreview?.Invoke();
         }
 
-        public void DoorFrameRotate()
+        public void DoorFrameRotate(int rotationIndex)
         {
-            OnDoorFrameRotation?.Invoke();
+            OnDoorFrameRotation?.Invoke(rotationIndex);
         }
     }
 }

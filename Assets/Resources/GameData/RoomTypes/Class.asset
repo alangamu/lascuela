@@ -19,6 +19,6 @@ MonoBehaviour:
     Amount: 1
   - RoomObjectType: {fileID: 11400000, guid: 269df79aece764d47af91c72e263b0a7, type: 2}
     Amount: 1
-  RoomMaterial: {fileID: 0}
+  RoomMaterial: {fileID: 2100000, guid: 2f834016e53f12c42a12baecd4450e34, type: 2}
   MinSizeX: 2
   MinSizeZ: 3

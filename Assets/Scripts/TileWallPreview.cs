@@ -1,5 +1,6 @@
 ﻿using Lascuela.Scripts.Interfaces;
 using Lascuela.Scripts.ScriptableObjects.Sets;
+using Lascuela.Scripts.ScriptableObjects.Variables;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -36,34 +37,38 @@ namespace Lascuela.Scripts
         [SerializeField]
         private TileRuntimeSet _tileManager;
 
+        [SerializeField]
+        private IntVariable _gridSizeX;
+        [SerializeField]
+        private IntVariable _gridSizeZ;
+
         private Renderer _renderer;
         private ITile _tile;
         private List<int> _walls;
-        private int _doorFrameRotationIndex;
 
         private void RotateDoorFrame(int index)
         {
+            print($"TileWallPreview RotateDoorFrame index {index}");
             _doorFrame.transform.rotation = Quaternion.identity;
-            int rotationIndex = _walls[index];
-            _doorFrame.transform.Rotate(new Vector3(0f, (rotationIndex - 1) * 90f, 0f));
-            HideWall(rotationIndex);
+            _doorFrame.transform.Rotate(new Vector3(0f, index * 90f, 0f));
+            HideWall(index);
         }
 
         private void HideWall(int rotationIndex)
         {
-            if (rotationIndex == 1)
+            if (rotationIndex == 0)
             {
                 _topWall.SetActive(false);
             }
-            if (rotationIndex == 2)
+            if (rotationIndex == 1)
             {
                 _rightWall.SetActive(false);
             }
-            if (rotationIndex == 3)
+            if (rotationIndex == 2)
             {
                 _bottomWall.SetActive(false);
             }
-            if (rotationIndex == 4)
+            if (rotationIndex == 3)
             {
                 _leftWall.SetActive(false);
             }
@@ -80,27 +85,21 @@ namespace Lascuela.Scripts
             }
             _tileDefault.TryGetComponent(out _renderer);
             _walls = new List<int>();
-            _doorFrameRotationIndex = 0;
             _doorFrame.SetActive(false);
         }
 
-        private void DoorFrameRotation()
+        private void DoorFrameRotation(int rotationIndex)
         {
-            _doorFrameRotationIndex++;
-            if (_doorFrameRotationIndex >= _walls.Count)
-            {
-                _doorFrameRotationIndex = 0;
-            }
             ClearPreview();
             ShowWallPreview();
             _doorFrame.SetActive(true);
-            RotateDoorFrame(_doorFrameRotationIndex);
+            RotateDoorFrame(rotationIndex);
         }
 
         private void ShowDoorPreview()
         {
             _doorFrame.SetActive(true);
-            RotateDoorFrame(_doorFrameRotationIndex);
+            RotateDoorFrame(0);
         }
 
         private void OnDisable()
@@ -127,10 +126,10 @@ namespace Lascuela.Scripts
             _topLeftPillar.SetActive(true);
             _bottomRightPillar.SetActive(true);
             _bottomLeftPillar.SetActive(true);
-            _walls.Add(1); //TOP
-            _walls.Add(2); //RIGHT
-            _walls.Add(3); //BOTTOM
-            _walls.Add(4); //LEFT
+            _walls.Add(0); //TOP
+            _walls.Add(1); //RIGHT
+            _walls.Add(2); //BOTTOM
+            _walls.Add(3); //LEFT
 
             bool isTopTileSelected = _tileManager.IsTopTileSelected(_tile);
             bool isBottomTileSelected = _tileManager.IsBottomTileSelected(_tile);
@@ -139,34 +138,79 @@ namespace Lascuela.Scripts
 
             if (isTopTileSelected)
             {
-                _walls.Remove(1);
-                _topWall.SetActive(false);
-                _topRightPillar.SetActive(false);
-                _topLeftPillar.SetActive(false);
+                _walls.Remove(0);
+                HideTopWall();
             }
             if (isBottomTileSelected)
             {
-                _walls.Remove(3);
-                _bottomWall.SetActive(false);
-                _bottomRightPillar.SetActive(false);
-                _bottomLeftPillar.SetActive(false);
+                _walls.Remove(2);
+                HideBottomWall();
             }
             if (isLeftTileSelected)
             {
-                _walls.Remove(4);
-                _leftWall.SetActive(false);
-                _topLeftPillar.SetActive(false);
-                _bottomLeftPillar.SetActive(false);
+                _walls.Remove(3);
+                HideLeftWall();
             }
             if (isRightTileSelected)
             {
-                _walls.Remove(2);
-                _rightWall.SetActive(false);
-                _topRightPillar.SetActive(false);
-                _bottomRightPillar.SetActive(false);
+                _walls.Remove(1);
+                HideRightWall();
             }
 
             _tile.SetHasWall(_walls.Count > 0);
+
+            CheckBorders();
+        }
+
+        private void CheckBorders()
+        {
+            if (_tile.Z == 0)
+            {
+                HideBottomWall();
+            }
+
+            if (_tile.Z == _gridSizeZ.Value - 1)
+            {
+                HideTopWall();
+            }
+
+            if (_tile.X == 0)
+            {
+                HideLeftWall();
+            }
+
+            if (_tile.X == _gridSizeX.Value - 1)
+            {
+                HideRightWall();
+            }
+        }
+
+        private void HideRightWall()
+        {
+            _rightWall.SetActive(false);
+            _topRightPillar.SetActive(false);
+            _bottomRightPillar.SetActive(false);
+        }
+
+        private void HideLeftWall()
+        {
+            _leftWall.SetActive(false);
+            _topLeftPillar.SetActive(false);
+            _bottomLeftPillar.SetActive(false);
+        }
+
+        private void HideTopWall()
+        {
+            _topWall.SetActive(false);
+            _topRightPillar.SetActive(false);
+            _topLeftPillar.SetActive(false);
+        }
+
+        private void HideBottomWall()
+        {
+            _bottomWall.SetActive(false);
+            _bottomRightPillar.SetActive(false);
+            _bottomLeftPillar.SetActive(false);
         }
 
         private void ClearPreview()

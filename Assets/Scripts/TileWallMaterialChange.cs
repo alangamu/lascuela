@@ -14,6 +14,9 @@ namespace Lascuela.Scripts
         [SerializeField]
         private MeshRenderer _doorFrameExteriorMesh;
 
+        [SerializeField]
+        private MeshRenderer[] _interiorWallsMeshes;
+
         private void OnEnable()
         {
             _setActiveRoomTypeEvent.OnRaise += SetActiveRoomTypeEventOnRaise;
@@ -26,6 +29,11 @@ namespace Lascuela.Scripts
 
         private void SetActiveRoomTypeEventOnRaise(RoomTypeSO roomType)
         {
+            foreach (MeshRenderer wallMesh in _interiorWallsMeshes)
+            {
+                wallMesh.material = roomType.RoomMaterial;
+            }
+
             _doorFrameInteriorMesh.material = roomType.RoomMaterial;
             _doorFrameExteriorMesh.material = roomType.RoomMaterial;
         }

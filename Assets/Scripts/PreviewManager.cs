@@ -43,6 +43,7 @@ namespace Lascuela.Scripts
 
         private void NextRoomObjectActivationEventOnRaise()
         {
+            print($"_activeRoomObjectIndex {_activeRoomObjectIndex}");
             _activeRoomObject.SetValue(_roomTypeObjects[_activeRoomObjectIndex]);
             _activeRoomObjectIndex++;
         }

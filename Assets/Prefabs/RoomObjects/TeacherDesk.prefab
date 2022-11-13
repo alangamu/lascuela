@@ -124,7 +124,6 @@ GameObject:
   - component: {fileID: 4425716644116931213}
   - component: {fileID: 4396460910202726841}
   - component: {fileID: 4407008318422603685}
-  - component: {fileID: 4440267897978818999}
   m_Layer: 0
   m_Name: Desk
   m_TagString: Untagged
@@ -197,20 +196,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &4440267897978818999
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4429547362503174493}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 43914520734095120, guid: bcf2c0dcb31eeb2408be88e5e25ee4e8, type: 2}
 --- !u!1 &6823334272891760793
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,9 +207,6 @@ GameObject:
   - component: {fileID: 6820214141405219549}
   - component: {fileID: 6831892411079374283}
   - component: {fileID: 6837656303072207045}
-  - component: {fileID: 6797337897438146163}
-  - component: {fileID: 6796535818557033875}
-  - component: {fileID: 6796991337635743127}
   m_Layer: 0
   m_Name: Chair
   m_TagString: Untagged
@@ -297,45 +279,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &6797337897438146163
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6823334272891760793}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 43256635947323126, guid: 5079e7a5ad1a4b14b8084b650239cc38, type: 2}
---- !u!64 &6796535818557033875
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6823334272891760793}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 43767844282372034, guid: 5079e7a5ad1a4b14b8084b650239cc38, type: 2}
---- !u!64 &6796991337635743127
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6823334272891760793}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 43098668385771234, guid: 5079e7a5ad1a4b14b8084b650239cc38, type: 2}

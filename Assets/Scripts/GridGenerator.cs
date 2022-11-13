@@ -1,4 +1,5 @@
 ﻿using Lascuela.Scripts.Interfaces;
+using Lascuela.Scripts.ScriptableObjects.Variables;
 using UnityEngine;
 
 namespace Assets.Scripts
@@ -6,9 +7,9 @@ namespace Assets.Scripts
     public class GridGenerator : MonoBehaviour
     {
         [SerializeField]
-        private int _gridSizeX = 22;
+        private IntVariable _gridSizeX;
         [SerializeField]
-        private int _gridSizeZ = 12;
+        private IntVariable _gridSizeZ;
 
         [SerializeField]
         private Vector3 _startingPosition;
@@ -22,9 +23,9 @@ namespace Assets.Scripts
 
         private void GenerateGrid()
         {
-            for (int i = 0; i < _gridSizeX; i++)
+            for (int i = 0; i < _gridSizeX.Value; i++)
             {
-                for (int j = 0; j < _gridSizeZ; j++)
+                for (int j = 0; j < _gridSizeZ.Value; j++)
                 {
                     Vector3 spawnPosition = new Vector3(-i * 2.5f, 0f, -j * 2.5f) + _startingPosition;
                     GameObject tileGameObject = Instantiate(_gridTilePrefab, spawnPosition, Quaternion.identity);

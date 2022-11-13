@@ -11,8 +11,6 @@ GameObject:
   - component: {fileID: 1523762294950267739}
   - component: {fileID: 1531242495408354081}
   - component: {fileID: 1542129089526458657}
-  - component: {fileID: 1572125442962229195}
-  - component: {fileID: 1572105133552861139}
   m_Layer: 0
   m_Name: SM_Prop_Bathroom_Sink_01
   m_TagString: Untagged
@@ -85,34 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &1572125442962229195
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1527771628761007913}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 43557738550610408, guid: 3adddffe8d92a4642b91828f7789f0e2, type: 2}
---- !u!64 &1572105133552861139
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1527771628761007913}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 43951377864411198, guid: 3adddffe8d92a4642b91828f7789f0e2, type: 2}
 --- !u!1 &1558371321076397292
 GameObject:
   m_ObjectHideFlags: 0
@@ -124,7 +94,6 @@ GameObject:
   - component: {fileID: 1564157941524913880}
   - component: {fileID: 1575462712437375588}
   - component: {fileID: 1582007030540794308}
-  - component: {fileID: 1535700182597225158}
   m_Layer: 0
   m_Name: SM_Prop_Bathroom_Mirror_01
   m_TagString: Untagged
@@ -197,19 +166,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &1535700182597225158
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1558371321076397292}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.5, y: 1.8136327, z: 0.042015396}
-  m_Center: {x: -1.2499998, y: 1.7955815, z: 0.021007806}
 --- !u!1 &7379936143026101998
 GameObject:
   m_ObjectHideFlags: 0

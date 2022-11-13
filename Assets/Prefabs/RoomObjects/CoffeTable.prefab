@@ -45,7 +45,6 @@ GameObject:
   - component: {fileID: 2925684824122288093}
   - component: {fileID: 2953276018340120491}
   - component: {fileID: 2943351408493949873}
-  - component: {fileID: 2911842422119052593}
   m_Layer: 0
   m_Name: SM_Prop_CoffeeTable_02
   m_TagString: Untagged
@@ -118,20 +117,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &2911842422119052593
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2922301488444987823}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 43378435807510204, guid: bb3e8eca15565994eac0616efca71d1d, type: 2}
 --- !u!1 &6025273694266464524
 GameObject:
   m_ObjectHideFlags: 0
@@ -143,7 +128,6 @@ GameObject:
   - component: {fileID: 6019646976874297646}
   - component: {fileID: 6047618956684337948}
   - component: {fileID: 6037559971565607324}
-  - component: {fileID: 6014841459286739914}
   m_Layer: 0
   m_Name: SM_Prop_CoffeeMachine_Small_01
   m_TagString: Untagged
@@ -217,20 +201,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &6014841459286739914
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6025273694266464524}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 43976012062094996, guid: 751a09526279b0a4395a707e2ee22620, type: 2}
 --- !u!1 &6025720682126667718
 GameObject:
   m_ObjectHideFlags: 0
@@ -325,7 +295,6 @@ GameObject:
   - component: {fileID: 8940845019806647735}
   - component: {fileID: 8967499198816985533}
   - component: {fileID: 8957761590252014181}
-  - component: {fileID: 8998548333820291891}
   m_Layer: 0
   m_Name: SM_Prop_CoffeeMachine_Dripper_01_Pot_01
   m_TagString: Untagged
@@ -400,20 +369,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &8998548333820291891
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8935199691003364743}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 43679426457039550, guid: 4a67195202dd2a841a4cd57cfd7072db, type: 2}
 --- !u!1 &8935318468183651151
 GameObject:
   m_ObjectHideFlags: 0

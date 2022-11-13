@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6859362267082399948
 Transform:
   m_ObjectHideFlags: 0
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 971978637110121483}
   - component: {fileID: 6975958358705719817}
   m_Layer: 0
-  m_Name: SM_Bld_Wall_Brick_01 (34)
+  m_Name: RightWallExterior
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -123,7 +123,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1922235503155444102}
-  m_Mesh: {fileID: 4300000, guid: 0877d135a20274941a8d8ec07ed2f3b4, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 400dbce2594ecec438f3d490132ba4fd, type: 3}
 --- !u!23 &6975958358705719817
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -206,7 +206,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2023543125101115756}
-  m_Mesh: {fileID: 4300000, guid: 437933da6e86656419b999654c6adb40, type: 3}
+  m_Mesh: {fileID: 4300000, guid: f281bbb846d8e7c4aa4598e09b898eeb, type: 3}
 --- !u!23 &2036761692952756748
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -277,8 +277,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 642258052971171319}
   - {fileID: 813565184368675903}
+  - {fileID: 642258052971171319}
   m_Father: {fileID: 1767739951681217831}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -299,7 +299,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2540497664091207531
 Transform:
   m_ObjectHideFlags: 0
@@ -408,7 +408,7 @@ GameObject:
   - component: {fileID: 3591522599252922627}
   - component: {fileID: 5577187861985952471}
   m_Layer: 0
-  m_Name: SM_Bld_Wall_Brick_01 (35)
+  m_Name: LeftWallExterior
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -427,7 +427,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2174666645088317584}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3591522599252922627
 MeshFilter:
@@ -436,7 +436,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3477111367325971969}
-  m_Mesh: {fileID: 4300000, guid: 0877d135a20274941a8d8ec07ed2f3b4, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 400dbce2594ecec438f3d490132ba4fd, type: 3}
 --- !u!23 &5577187861985952471
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -491,7 +491,7 @@ GameObject:
   - component: {fileID: 862727679440643480}
   - component: {fileID: 5344121910931992905}
   m_Layer: 0
-  m_Name: SM_Bld_Wall_Brick_01 (35)
+  m_Name: RightWallInterior
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -519,7 +519,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3757106801602017845}
-  m_Mesh: {fileID: 4300000, guid: 0877d135a20274941a8d8ec07ed2f3b4, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 400dbce2594ecec438f3d490132ba4fd, type: 3}
 --- !u!23 &5344121910931992905
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -579,7 +579,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2869231080739466407
 Transform:
   m_ObjectHideFlags: 0
@@ -657,7 +657,7 @@ GameObject:
   - component: {fileID: 1478917132887769057}
   - component: {fileID: 3456960822786948153}
   m_Layer: 0
-  m_Name: SM_Bld_Wall_Brick_01 (35)
+  m_Name: BottomWallExterior
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -676,7 +676,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4696473775322618296}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1478917132887769057
 MeshFilter:
@@ -685,7 +685,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3833910459768879451}
-  m_Mesh: {fileID: 4300000, guid: 0877d135a20274941a8d8ec07ed2f3b4, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 400dbce2594ecec438f3d490132ba4fd, type: 3}
 --- !u!23 &3456960822786948153
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -756,8 +756,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6843136079003839231}
   - {fileID: 344061987612611158}
+  - {fileID: 6843136079003839231}
   m_Father: {fileID: 1767739951681217831}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
@@ -778,7 +778,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1821908132359250506
 Transform:
   m_ObjectHideFlags: 0
@@ -884,7 +884,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5181636009787592395}
-  m_Mesh: {fileID: 4300000, guid: 437933da6e86656419b999654c6adb40, type: 3}
+  m_Mesh: {fileID: 4300000, guid: f281bbb846d8e7c4aa4598e09b898eeb, type: 3}
 --- !u!23 &8514973081537525161
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1127,6 +1127,8 @@ MonoBehaviour:
   _bottomRightPillar: {fileID: 4190775495325108637}
   _bottomLeftPillar: {fileID: 2543365759885693257}
   _tileManager: {fileID: 11400000, guid: 4b4b8d2c7557cca4886e098f530e7a62, type: 2}
+  _gridSizeX: {fileID: 11400000, guid: ae16bec30f83e6f40b082c8a43afa8bb, type: 2}
+  _gridSizeZ: {fileID: 11400000, guid: 16cdae4b429dd74419ae94949ce20bf8, type: 2}
 --- !u!114 &7136544839313488678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1142,6 +1144,8 @@ MonoBehaviour:
   _activeRoomObject: {fileID: 11400000, guid: ba8b2f5a0658e1e419a4ef61577b1060, type: 2}
   _nextRoomObjectActivationEvent: {fileID: 11400000, guid: 24337eb98955ab54ab08c8c80cca6919,
     type: 2}
+  _gridSizeX: {fileID: 11400000, guid: ae16bec30f83e6f40b082c8a43afa8bb, type: 2}
+  _gridSizeZ: {fileID: 11400000, guid: 16cdae4b429dd74419ae94949ce20bf8, type: 2}
 --- !u!114 &3518953471821294848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1158,6 +1162,11 @@ MonoBehaviour:
     type: 2}
   _doorFrameInteriorMesh: {fileID: 2036761692952756748}
   _doorFrameExteriorMesh: {fileID: 8514973081537525161}
+  _interiorWallsMeshes:
+  - {fileID: 7998706454842759600}
+  - {fileID: 9194586590419617144}
+  - {fileID: 553404169877384497}
+  - {fileID: 5344121910931992905}
 --- !u!1 &6948118464117966222
 GameObject:
   m_ObjectHideFlags: 0
@@ -1170,7 +1179,7 @@ GameObject:
   - component: {fileID: 7467005120578515223}
   - component: {fileID: 553404169877384497}
   m_Layer: 0
-  m_Name: SM_Bld_Wall_Brick_01 (34)
+  m_Name: LeftWallInterior
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1189,7 +1198,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2174666645088317584}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7467005120578515223
 MeshFilter:
@@ -1198,7 +1207,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6948118464117966222}
-  m_Mesh: {fileID: 4300000, guid: 0877d135a20274941a8d8ec07ed2f3b4, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 400dbce2594ecec438f3d490132ba4fd, type: 3}
 --- !u!23 &553404169877384497
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1319,7 +1328,7 @@ GameObject:
   - component: {fileID: 8008781845225921627}
   - component: {fileID: 7998706455061932719}
   m_Layer: 0
-  m_Name: SM_Bld_Wall_Brick_01 (34)
+  m_Name: TopWallExterior
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1347,7 +1356,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8023013773473204461}
-  m_Mesh: {fileID: 4300000, guid: 0877d135a20274941a8d8ec07ed2f3b4, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 400dbce2594ecec438f3d490132ba4fd, type: 3}
 --- !u!23 &7998706455061932719
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1402,7 +1411,7 @@ GameObject:
   - component: {fileID: 8008781845545627460}
   - component: {fileID: 7998706454842759600}
   m_Layer: 0
-  m_Name: SM_Bld_Wall_Brick_01 (35)
+  m_Name: TopWallInterior
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1430,7 +1439,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8023013773692255218}
-  m_Mesh: {fileID: 4300000, guid: 0877d135a20274941a8d8ec07ed2f3b4, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 400dbce2594ecec438f3d490132ba4fd, type: 3}
 --- !u!23 &7998706454842759600
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1568,7 +1577,7 @@ GameObject:
   - component: {fileID: 8706378668259466540}
   - component: {fileID: 9194586590419617144}
   m_Layer: 0
-  m_Name: SM_Bld_Wall_Brick_01 (34)
+  m_Name: BottomWallInterior
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1587,7 +1596,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4696473775322618296}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8706378668259466540
 MeshFilter:
@@ -1596,7 +1605,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8915938428680151362}
-  m_Mesh: {fileID: 4300000, guid: 0877d135a20274941a8d8ec07ed2f3b4, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 400dbce2594ecec438f3d490132ba4fd, type: 3}
 --- !u!23 &9194586590419617144
 MeshRenderer:
   m_ObjectHideFlags: 0
