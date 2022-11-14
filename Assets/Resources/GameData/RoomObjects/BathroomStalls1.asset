@@ -19,3 +19,6 @@ MonoBehaviour:
     type: 3}
   RoomObjectName: Bathroom Stalls
   RoomObjectSprite: {fileID: 0}
+  IsRotatingWithWall: 1
+  IsHidingWall: 0
+  IsDoor: 0

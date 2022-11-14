@@ -23,3 +23,4 @@ MonoBehaviour:
   RoomObjectSprite: {fileID: 0}
   IsRotatingWithWall: 1
   IsHidingWall: 1
+  IsDoor: 1

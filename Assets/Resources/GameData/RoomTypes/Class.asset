@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Class
   m_EditorClassIdentifier: 
   RecipeEntries:
-  - RoomObjectType: {fileID: 11400000, guid: 800367ff936eefc4fa1079d792ec6143, type: 2}
-    Amount: 4
   - RoomObjectType: {fileID: 11400000, guid: 9e7de9075a567654f98d0134c9474036, type: 2}
     Amount: 1
   - RoomObjectType: {fileID: 11400000, guid: 269df79aece764d47af91c72e263b0a7, type: 2}
     Amount: 1
+  - RoomObjectType: {fileID: 11400000, guid: 800367ff936eefc4fa1079d792ec6143, type: 2}
+    Amount: 4
   RoomMaterial: {fileID: 2100000, guid: 2f834016e53f12c42a12baecd4450e34, type: 2}
   MinSizeX: 2
   MinSizeZ: 3

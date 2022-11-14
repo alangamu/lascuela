@@ -18,6 +18,9 @@ namespace Lascuela.Scripts
         [SerializeField]
         private IntVariable _gridSizeZ;
 
+        [SerializeField]
+        private IntVariable _activeRoomObjectRotationIndex;
+
         private GameObject _previewGameObject;
         private bool _isShowingObject = false;
         private bool _isHidingWall = false;
@@ -25,7 +28,7 @@ namespace Lascuela.Scripts
         private bool _isDoorObject = false;
         private ITile _tile;
         private IWallController _wallController;
-        private int _doorRotationIndex = 0;
+        private int _objectRotationIndex = 0;
 
         private void OnEnable()
         {
@@ -40,31 +43,35 @@ namespace Lascuela.Scripts
             _activeRoomObject.OnValueChanged -= ActiveRoomObjectOnValueChanged;
         }
 
+        private void ActiveRoomObjectRotationIndexOnValueChanged(int rotationIndex)
+        {
+            if (_isShowingObject)
+            {
+                if (_isRotatingWithWall)
+                {
+                    RotateWithWall();
+                }
+                else
+                {
+                    _objectRotationIndex = rotationIndex;
+                    Rotate();
+                }
+            }
+        }
+
         private void ActiveRoomObjectOnValueChanged(RoomObjectSO activeRoomObject)
         {
             _isShowingObject = true;
             _isHidingWall = activeRoomObject.IsHidingWall;
             _isRotatingWithWall = activeRoomObject.IsRotatingWithWall;
             _isDoorObject = activeRoomObject.IsDoor;
-            _doorRotationIndex = 0;
+            _objectRotationIndex = 0;
         }
 
         private void OnMouseOver()
         {
             if (_isShowingObject)
             {
-                if (Input.GetKeyDown(KeyCode.R))
-                {
-                    if (_isRotatingWithWall)
-                    {
-                        RotateWithWall();
-                    }
-                    else
-                    {
-                        Rotate();
-                    }
-
-                }
                 if (Input.GetMouseButtonDown(0))
                 {
                     if (_previewGameObject != null)
@@ -79,6 +86,8 @@ namespace Lascuela.Scripts
 
         private void OnMouseEnter()
         {
+            _activeRoomObjectRotationIndex.OnValueChanged += ActiveRoomObjectRotationIndexOnValueChanged;
+
             if (!_tile.IsSelected)
             {
                 return;
@@ -101,27 +110,13 @@ namespace Lascuela.Scripts
                     return;
                 }
 
-                //if (_wallController.Walls.Count == 1)
-                //{
-                //    if (_wallController.Walls[0] == 0 && _tile.Z == _gridSizeZ.Value - 1)
-                //    {
-                //        return;
-                //    }
-
-                //    if (_wallController.Walls[0] == 1 && _tile.X == _gridSizeX.Value - 1)
-                //    {
-                //        return;
-                //    }
-                //}
-
-                //if (_wallController.Walls.Count == 2)
-                //{
-
-                //}
-
                 _previewGameObject = Instantiate(_activeRoomObject.Value.RoomObjectPrefab, transform.position, Quaternion.identity);
-                _tile.ShowDoorFramePreview();
-                _doorRotationIndex = 0;
+
+                if (_isDoorObject)
+                {
+                    _tile.ShowDoorFramePreview();
+                }
+                _objectRotationIndex = 0;
                 RotateWithWall();
                 return;
             }
@@ -132,6 +127,8 @@ namespace Lascuela.Scripts
 
         private void OnMouseExit()
         {
+            _activeRoomObjectRotationIndex.OnValueChanged -= ActiveRoomObjectRotationIndexOnValueChanged;
+
             if (_isShowingObject)
             {
                 if (_previewGameObject != null)
@@ -185,40 +182,27 @@ namespace Lascuela.Scripts
         private void Rotate()
         {
             _previewGameObject.transform.rotation = Quaternion.identity;
-            _previewGameObject.transform.Rotate(new Vector3(0f, (_doorRotationIndex++ % 4) * 90f, 0f));
+            _previewGameObject.transform.Rotate(new Vector3(0f, _activeRoomObjectRotationIndex.Value * 90f, 0f));
         }
 
         private void RotateWithWall()
         {
+            int rotationIndex = _wallController.Walls[_objectRotationIndex++ % _wallController.Walls.Count];
+
             _previewGameObject.transform.rotation = Quaternion.identity;
-
-            int rotationIndex = _wallController.Walls[_doorRotationIndex++ % _wallController.Walls.Count];
-
-            print($"rotationIndex 1 {rotationIndex}");
 
             if (_isDoorObject)
             {
-                bool canRotate;
-                switch (rotationIndex)
+                var canRotate = rotationIndex switch
                 {
-                    case 0:
-                        canRotate = _tile.Z == _gridSizeZ.Value - 1;
-                        break;
-                    case 1:
-                        canRotate = _tile.X == _gridSizeX.Value - 1;
-                        break;
-                    case 2:
-                        canRotate = _tile.Z == 0;
-                        break;
-                    case 3:
-                    default:
-                        canRotate = _tile.X == 0;
-                        break;
-                }
-
+                    0 => _tile.Z == _gridSizeZ.Value - 1,
+                    1 => _tile.X == _gridSizeX.Value - 1,
+                    2 => _tile.Z == 0,
+                    _ => _tile.X == 0,
+                };
                 if (canRotate)
                 {
-                    rotationIndex = _wallController.Walls[_doorRotationIndex++ % _wallController.Walls.Count];
+                    rotationIndex = _wallController.Walls[_objectRotationIndex++ % _wallController.Walls.Count];
                 }
             }
 
@@ -227,10 +211,7 @@ namespace Lascuela.Scripts
                 _tile.DoorFrameRotate(rotationIndex);
             }
 
-            print($"rotationIndex 2 {rotationIndex}");
-
             _previewGameObject.transform.Rotate(new Vector3(0f, (rotationIndex) * 90f, 0f));
         }
     }
-
 }

@@ -1146,6 +1146,8 @@ MonoBehaviour:
     type: 2}
   _gridSizeX: {fileID: 11400000, guid: ae16bec30f83e6f40b082c8a43afa8bb, type: 2}
   _gridSizeZ: {fileID: 11400000, guid: 16cdae4b429dd74419ae94949ce20bf8, type: 2}
+  _activeRoomObjectRotationIndex: {fileID: 11400000, guid: cd95b5bbb5e4eb84ba9ffaeacba24919,
+    type: 2}
 --- !u!114 &3518953471821294848
 MonoBehaviour:
   m_ObjectHideFlags: 0

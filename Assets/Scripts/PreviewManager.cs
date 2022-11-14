@@ -20,7 +20,6 @@ namespace Lascuela.Scripts
         [SerializeField]
         private string _resourcesPath;
 
-
         private int _activeRoomObjectIndex;
         private RoomTypeSO _activeRoomType;
         private Object[] _roomObjects;
@@ -50,7 +49,7 @@ namespace Lascuela.Scripts
 
         private void SetActiveRoomTypeEventOnRaise(RoomTypeSO roomType)
         {
-            //coroutine to prevent instant GetMouseButtonUp
+            _roomTypeObjects = new List<RoomObjectSO>();
             _activeRoomType = roomType;
             StartCoroutine(SetIsShowingPreview());
             _activeRoomObjectIndex = 0;
