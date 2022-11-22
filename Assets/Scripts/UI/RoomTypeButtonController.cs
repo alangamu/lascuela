@@ -1,5 +1,5 @@
 ﻿using Lascuela.Scripts.ScriptableObjects;
-using Lascuela.Scripts.ScriptableObjects.Events;
+using Lascuela.Scripts.ScriptableObjects.Variables;
 using TMPro;
 using UnityEngine;
 
@@ -11,7 +11,7 @@ namespace Lascuela.Scripts.UI
         private TMP_Text _buttonName;
 
         [SerializeField]
-        private RoomTypeGameEvent _setActiveRoomTypeEvent;
+        private RoomTypeVariable _activeRoomType;
 
         private RoomTypeSO _roomType;
 
@@ -23,7 +23,7 @@ namespace Lascuela.Scripts.UI
 
         public void SetActiveRoomType()
         {
-            _setActiveRoomTypeEvent.Raise(_roomType);
+            _activeRoomType.SetValue(_roomType);
         }
     }
 }

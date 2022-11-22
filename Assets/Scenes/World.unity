@@ -10237,8 +10237,7 @@ MonoBehaviour:
   _resourcesPath: GameData/RoomObjects
   _roomObjectButtonPrefab: {fileID: 3328128975316997194, guid: fea38ede8ffb00744b5c52fde8361ff3,
     type: 3}
-  _setActiveRoomTypeEvent: {fileID: 11400000, guid: 28916a0787c48924e97a811e2f8bb2db,
-    type: 2}
+  _activeRoomType: {fileID: 11400000, guid: 45248811ef99fb94d86e0d4844a1a392, type: 2}
 --- !u!1001 &479868764
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38605,8 +38604,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e18a07dc9b156445bc9e287938a3039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _setActiveRoomTypeEvent: {fileID: 11400000, guid: 28916a0787c48924e97a811e2f8bb2db,
-    type: 2}
+  _activeRoomType: {fileID: 11400000, guid: 45248811ef99fb94d86e0d4844a1a392, type: 2}
   _isShowingPreviewVariable: {fileID: 11400000, guid: 7299c105c8ffb2c4db746cdf4c2a60a0,
     type: 2}
   _activeRoomObject: {fileID: 11400000, guid: ba8b2f5a0658e1e419a4ef61577b1060, type: 2}
@@ -49217,6 +49215,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1266292689}
     m_Modifications:
+    - target: {fileID: 553703397457749561, guid: c67789e711e465e4691362790a12ca91,
+        type: 3}
+      propertyPath: _activeRoomType
+      value: 
+      objectReference: {fileID: 11400000, guid: 45248811ef99fb94d86e0d4844a1a392,
+        type: 2}
     - target: {fileID: 2747259459428417464, guid: c67789e711e465e4691362790a12ca91,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size

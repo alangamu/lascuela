@@ -1,5 +1,5 @@
 ﻿using Lascuela.Scripts.ScriptableObjects;
-using Lascuela.Scripts.ScriptableObjects.Events;
+using Lascuela.Scripts.ScriptableObjects.Variables;
 using UnityEngine;
 
 namespace Lascuela.Scripts.UI
@@ -16,7 +16,7 @@ namespace Lascuela.Scripts.UI
         private GameObject _roomObjectButtonPrefab;
 
         [SerializeField]
-        private RoomTypeGameEvent _setActiveRoomTypeEvent;
+        private RoomTypeVariable _activeRoomType;
 
         public void HidePanel()
         {
@@ -62,15 +62,15 @@ namespace Lascuela.Scripts.UI
 
         private void OnEnable()
         {
-            _setActiveRoomTypeEvent.OnRaise += SetActiveRoomTypeEventOnRaise;
+            _activeRoomType.OnValueChanged += ActiveRoomTypeOnChanged;
         }
 
         private void OnDisable()
         {
-            _setActiveRoomTypeEvent.OnRaise -= SetActiveRoomTypeEventOnRaise;
+            _activeRoomType.OnValueChanged -= ActiveRoomTypeOnChanged;
         }
 
-        private void SetActiveRoomTypeEventOnRaise(RoomTypeSO roomType)
+        private void ActiveRoomTypeOnChanged(RoomTypeSO roomType)
         {
             ClearPanel();
             ShowPanel();

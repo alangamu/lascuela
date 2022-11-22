@@ -1114,8 +1114,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8febf37b774c245b4f4e4a720d9c5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _previewMaterial: {fileID: 2100000, guid: 0d959f9df49849143aa160f6d562a48e, type: 2}
-  _normalMaterial: {fileID: 2100000, guid: 2f834016e53f12c42a12baecd4450e34, type: 2}
   _doorFrame: {fileID: 9179629124473330122}
   _tileDefault: {fileID: 8747094967809632035}
   _topWall: {fileID: 7473348941487117020}
@@ -1160,8 +1158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 927558d3c3d769042b10bbab43cbe29e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _setActiveRoomTypeEvent: {fileID: 11400000, guid: 28916a0787c48924e97a811e2f8bb2db,
-    type: 2}
+  _activeRoomType: {fileID: 11400000, guid: 45248811ef99fb94d86e0d4844a1a392, type: 2}
   _doorFrameInteriorMesh: {fileID: 2036761692952756748}
   _doorFrameExteriorMesh: {fileID: 8514973081537525161}
   _interiorWallsMeshes:
@@ -1169,6 +1166,11 @@ MonoBehaviour:
   - {fileID: 9194586590419617144}
   - {fileID: 553404169877384497}
   - {fileID: 5344121910931992905}
+  _externalWallsMeshes:
+  - {fileID: 7998706455061932719}
+  - {fileID: 3456960822786948153}
+  - {fileID: 5577187861985952471}
+  - {fileID: 6975958358705719817}
 --- !u!1 &6948118464117966222
 GameObject:
   m_ObjectHideFlags: 0

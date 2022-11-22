@@ -10,7 +10,7 @@ namespace Lascuela.Scripts
     public class PreviewManager : MonoBehaviour
     {
         [SerializeField]
-        private RoomTypeGameEvent _setActiveRoomTypeEvent;
+        private RoomTypeVariable _activeRoomType;
         [SerializeField]
         private BoolVariable _isShowingPreviewVariable;
         [SerializeField]
@@ -21,7 +21,6 @@ namespace Lascuela.Scripts
         private string _resourcesPath;
 
         private int _activeRoomObjectIndex;
-        private RoomTypeSO _activeRoomType;
         private Object[] _roomObjects;
         private List<RoomObjectSO> _roomTypeObjects;
 
@@ -30,13 +29,13 @@ namespace Lascuela.Scripts
             _roomObjects = Resources.LoadAll(_resourcesPath, typeof(RoomObjectSO));
             _roomTypeObjects = new List<RoomObjectSO>();
 
-            _setActiveRoomTypeEvent.OnRaise += SetActiveRoomTypeEventOnRaise;
+            _activeRoomType.OnValueChanged += SetActiveRoomTypeEventOnRaise;
             _nextRoomObjectActivationEvent.OnRaise += NextRoomObjectActivationEventOnRaise;
         }
 
         private void OnDisable()
         {
-            _setActiveRoomTypeEvent.OnRaise -= SetActiveRoomTypeEventOnRaise;
+            _activeRoomType.OnValueChanged -= SetActiveRoomTypeEventOnRaise;
             _nextRoomObjectActivationEvent.OnRaise -= NextRoomObjectActivationEventOnRaise;
         }
 
@@ -50,13 +49,12 @@ namespace Lascuela.Scripts
         private void SetActiveRoomTypeEventOnRaise(RoomTypeSO roomType)
         {
             _roomTypeObjects = new List<RoomObjectSO>();
-            _activeRoomType = roomType;
             StartCoroutine(SetIsShowingPreview());
             _activeRoomObjectIndex = 0;
 
             foreach (RoomObjectSO item in _roomObjects)
             {
-                if (item.RoomTypes.Contains(_activeRoomType))
+                if (item.RoomTypes.Contains(_activeRoomType.Value))
                 {
                     _roomTypeObjects.Add(item);
                 }

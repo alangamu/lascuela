@@ -1,4 +1,5 @@
 ﻿using Lascuela.Scripts.Interfaces;
+using Lascuela.Scripts.ScriptableObjects.Variables;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,49 +8,63 @@ namespace Lascuela.Scripts.ScriptableObjects.Sets
     [CreateAssetMenu(menuName = "Sets/TileRuntimeSet")]
     public class TileRuntimeSet : RuntimeSet<ITile>    
     {
+        [SerializeField]
+        private Material _disabledWallMaterial;
+        [SerializeField]
+        private RoomTypeVariable _activeRoomType;
+        [SerializeField]
+        private IntVariable _gridSizeX;
+        [SerializeField]
+        private IntVariable _gridSizeZ;
+
         private ITile _firstTilePreview;
+        private ITile _secondTilePreview;
 
         public void SetFirstTilePreview(ITile firstTilePreview)
         {
             _firstTilePreview = firstTilePreview;
         }
 
-        public void ShowWallPreview(ITile secondTile)
+        public void ShowRoomPreview(ITile secondTile)
         {
             List<ITile> tiles = new();
+            _secondTilePreview = secondTile;
+
             foreach (var item in Items)
             {
                 item.ClearWallPreview();
                 item.SetRoomSelected(false);
             }
 
-            if (_firstTilePreview.X <= secondTile.X && _firstTilePreview.Z <= secondTile.Z)
+            if (_firstTilePreview.X <= _secondTilePreview.X && _firstTilePreview.Z <= _secondTilePreview.Z)
             {
                 tiles = Items.FindAll(x =>
-                x.X >= _firstTilePreview.X && x.X <= secondTile.X &&
-                x.Z >= _firstTilePreview.Z && x.Z <= secondTile.Z);
+                x.X >= _firstTilePreview.X && x.X <= _secondTilePreview.X &&
+                x.Z >= _firstTilePreview.Z && x.Z <= _secondTilePreview.Z);
             }
 
-            if (_firstTilePreview.X <= secondTile.X && _firstTilePreview.Z > secondTile.Z)
+            if (_firstTilePreview.X <= _secondTilePreview.X && _firstTilePreview.Z > _secondTilePreview.Z)
             {
                 tiles = Items.FindAll(x =>
-                x.X >= _firstTilePreview.X && x.X <= secondTile.X &&
-                x.Z <= _firstTilePreview.Z && x.Z >= secondTile.Z);
+                x.X >= _firstTilePreview.X && x.X <= _secondTilePreview.X &&
+                x.Z <= _firstTilePreview.Z && x.Z >= _secondTilePreview.Z);
             }
 
-            if (_firstTilePreview.X > secondTile.X && _firstTilePreview.Z <= secondTile.Z)
+            if (_firstTilePreview.X > _secondTilePreview.X && _firstTilePreview.Z <= _secondTilePreview.Z)
             {
                 tiles = Items.FindAll(x =>
-                x.X <= _firstTilePreview.X && x.X >= secondTile.X &&
-                x.Z >= _firstTilePreview.Z && x.Z <= secondTile.Z);
+                x.X <= _firstTilePreview.X && x.X >= _secondTilePreview.X &&
+                x.Z >= _firstTilePreview.Z && x.Z <= _secondTilePreview.Z);
             }
 
-            if (_firstTilePreview.X > secondTile.X && _firstTilePreview.Z > secondTile.Z)
+            if (_firstTilePreview.X > _secondTilePreview.X && _firstTilePreview.Z > _secondTilePreview.Z)
             {
                 tiles = Items.FindAll(x =>
-                x.X <= _firstTilePreview.X && x.X >= secondTile.X &&
-                x.Z <= _firstTilePreview.Z && x.Z >= secondTile.Z);
+                x.X <= _firstTilePreview.X && x.X >= _secondTilePreview.X &&
+                x.Z <= _firstTilePreview.Z && x.Z >= _secondTilePreview.Z);
             }
+
+            Material wallMaterial = IsUnderMinSize(tiles) ? _disabledWallMaterial : _activeRoomType.Value.RoomMaterial;
 
             foreach (var item in tiles)
             {
@@ -57,16 +72,7 @@ namespace Lascuela.Scripts.ScriptableObjects.Sets
             }
             foreach (var item in tiles)
             {
-                item.ShowWallPreview();
-            }
-        }
-
-        public void ShowPreview()
-        {
-            List<ITile> tiles = Items.FindAll(x => x.IsSelected);
-
-            foreach (var item in tiles)
-            {
+                item.SetWallMaterial(wallMaterial);
                 item.ShowWallPreview();
             }
         }
@@ -113,6 +119,11 @@ namespace Lascuela.Scripts.ScriptableObjects.Sets
             }
 
             return rightTile.IsSelected;
+        }
+
+        private bool IsUnderMinSize(List<ITile> tiles)
+        {
+            return tiles.Count < _activeRoomType.Value.MinSizeX * _activeRoomType.Value.MinSizeZ;
         }
     }
 }

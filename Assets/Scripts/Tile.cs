@@ -8,6 +8,7 @@ namespace Lascuela.Scripts
     public class Tile : MonoBehaviour, ITile
     {
         public event Action OnShowWallPreview;
+        public event Action<Material> OnSetWallMaterial;
         public event Action OnClearWallPreview;
         public event Action OnShowDoorPreview;
         public event Action<int> OnDoorFrameRotation;
@@ -49,6 +50,21 @@ namespace Lascuela.Scripts
             HasWall = hasWall;
         }
 
+        public void ShowDoorFramePreview()
+        {
+            OnShowDoorPreview?.Invoke();
+        }
+
+        public void DoorFrameRotate(int rotationIndex)
+        {
+            OnDoorFrameRotation?.Invoke(rotationIndex);
+        }
+
+        public void SetWallMaterial(Material wallMaterial)
+        {
+            OnSetWallMaterial?.Invoke(wallMaterial);
+        }
+
         private void Start()
         {
             ClearWallPreview();
@@ -63,16 +79,6 @@ namespace Lascuela.Scripts
         private void OnDisable()
         {
             _tileManager.Remove(this);
-        }
-
-        public void ShowDoorFramePreview()
-        {
-            OnShowDoorPreview?.Invoke();
-        }
-
-        public void DoorFrameRotate(int rotationIndex)
-        {
-            OnDoorFrameRotation?.Invoke(rotationIndex);
         }
     }
 }

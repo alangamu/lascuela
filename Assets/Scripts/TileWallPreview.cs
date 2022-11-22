@@ -11,10 +11,6 @@ namespace Lascuela.Scripts
         public List<int> Walls => _walls;
 
         [SerializeField]
-        private Material _previewMaterial;
-        [SerializeField]
-        private Material _normalMaterial;
-        [SerializeField]
         private GameObject _doorFrame;
         [SerializeField]
         private GameObject _tileDefault;
@@ -42,7 +38,7 @@ namespace Lascuela.Scripts
         [SerializeField]
         private IntVariable _gridSizeZ;
 
-        private Renderer _renderer;
+        private Material _wallMaterial;
         private ITile _tile;
         private List<int> _walls;
 
@@ -83,9 +79,13 @@ namespace Lascuela.Scripts
                 _tile.OnShowDoorPreview += ShowDoorPreview;
                 _tile.OnDoorFrameRotation += DoorFrameRotation;
             }
-            _tileDefault.TryGetComponent(out _renderer);
             _walls = new List<int>();
             _doorFrame.SetActive(false);
+        }
+
+        private void TileOnSetWallMaterial(Material wallMaterial)
+        {
+            
         }
 
         private void DoorFrameRotation(int rotationIndex)
@@ -117,7 +117,6 @@ namespace Lascuela.Scripts
         {
             _walls.Clear();
             _doorFrame.SetActive(false);
-            _renderer.material = _previewMaterial;
             _topWall.SetActive(true);
             _bottomWall.SetActive(true);
             _leftWall.SetActive(true);
@@ -215,7 +214,6 @@ namespace Lascuela.Scripts
 
         private void ClearPreview()
         {
-            _renderer.material = _normalMaterial;
             _walls = new List<int>();
             _tile.SetHasWall(false);
 

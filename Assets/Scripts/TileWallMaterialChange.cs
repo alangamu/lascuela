@@ -1,13 +1,14 @@
-﻿using Lascuela.Scripts.ScriptableObjects;
-using Lascuela.Scripts.ScriptableObjects.Events;
+﻿using Lascuela.Scripts.Interfaces;
+using Lascuela.Scripts.ScriptableObjects;
+using Lascuela.Scripts.ScriptableObjects.Variables;
 using UnityEngine;
 
 namespace Lascuela.Scripts
 {
-    public class TileWallMaterialChange : MonoBehaviour
+    public class TileWallMaterialChange : MonoBehaviour, IMaterialChangeable
     {
         [SerializeField]
-        private RoomTypeGameEvent _setActiveRoomTypeEvent;
+        private RoomTypeVariable _activeRoomType;
 
         [SerializeField]
         private MeshRenderer _doorFrameInteriorMesh;
@@ -17,25 +18,52 @@ namespace Lascuela.Scripts
         [SerializeField]
         private MeshRenderer[] _interiorWallsMeshes;
 
+        [SerializeField]
+        private MeshRenderer[] _externalWallsMeshes;
+
+        private Material _wallBaseMaterial;
+        private ITile _tile;
+
+        public void ChangeWallsMaterial(MeshRenderer[] wallsRenderer, Material wallMaterial)
+        {
+            foreach (MeshRenderer wallMesh in wallsRenderer)
+            {
+                wallMesh.material = wallMaterial;
+            }
+        }
+
         private void OnEnable()
         {
-            _setActiveRoomTypeEvent.OnRaise += SetActiveRoomTypeEventOnRaise;
+            if (TryGetComponent(out _tile))
+            {
+                _tile.OnSetWallMaterial += TileOnSetWallMaterial;
+            }
+
+            _activeRoomType.OnValueChanged += ActiveRoomTypeChanged;
         }
 
         private void OnDisable()
         {
-            _setActiveRoomTypeEvent.OnRaise -= SetActiveRoomTypeEventOnRaise;
+            _activeRoomType.OnValueChanged -= ActiveRoomTypeChanged;
+            if (_tile != null)
+            {
+                _tile.OnSetWallMaterial -= TileOnSetWallMaterial;
+            }
         }
 
-        private void SetActiveRoomTypeEventOnRaise(RoomTypeSO roomType)
+        private void TileOnSetWallMaterial(Material wallMaterial)
         {
-            foreach (MeshRenderer wallMesh in _interiorWallsMeshes)
-            {
-                wallMesh.material = roomType.RoomMaterial;
-            }
+            _wallBaseMaterial = wallMaterial;
 
-            _doorFrameInteriorMesh.material = roomType.RoomMaterial;
-            _doorFrameExteriorMesh.material = roomType.RoomMaterial;
+            ChangeWallsMaterial(_interiorWallsMeshes, _wallBaseMaterial);
+
+            _doorFrameInteriorMesh.material = _wallBaseMaterial;
+            _doorFrameExteriorMesh.material = _wallBaseMaterial;
+        }
+
+        private void ActiveRoomTypeChanged(RoomTypeSO roomType)
+        {
+            TileOnSetWallMaterial(roomType.RoomMaterial);
         }
     }
 }

@@ -34,7 +34,7 @@ namespace Lascuela.Scripts
             {
                 _isSelected = true;
                 _tileManager.SetFirstTilePreview(_tile);
-                _tileManager.ShowWallPreview(_tile);
+                _tileManager.ShowRoomPreview(_tile);
             }
         }
 
@@ -45,7 +45,7 @@ namespace Lascuela.Scripts
                 if (_isMouseDraggingVariable.Value)
                 {
                     _isSelected = true;
-                    _tileManager.ShowWallPreview(_tile);
+                    _tileManager.ShowRoomPreview(_tile);
                 }
             }
         }

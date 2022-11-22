@@ -283,5 +283,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _buttonName: {fileID: 8205424288526164191}
-  _setActiveRoomTypeEvent: {fileID: 11400000, guid: 28916a0787c48924e97a811e2f8bb2db,
-    type: 2}
+  _activeRoomType: {fileID: 11400000, guid: 45248811ef99fb94d86e0d4844a1a392, type: 2}

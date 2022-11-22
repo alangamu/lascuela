@@ -1,6 +1,5 @@
 ﻿using Lascuela.Scripts.ScriptableObjects;
-using Lascuela.Scripts.ScriptableObjects.Events;
-using System.Collections;
+using Lascuela.Scripts.ScriptableObjects.Variables;
 using UnityEngine;
 
 namespace Lascuela.Scripts
@@ -8,7 +7,7 @@ namespace Lascuela.Scripts
     public class RoomBuilderController : MonoBehaviour
     {
         [SerializeField]
-        private RoomTypeGameEvent _roomTypeGameEvent;
+        private RoomTypeVariable _activeRoomType;
         [SerializeField]
         private Transform _holder;
 
@@ -16,10 +15,10 @@ namespace Lascuela.Scripts
 
         private void OnEnable()
         {
-            _roomTypeGameEvent.OnRaise += RoomTypeGameEventOnRaise;
+            _activeRoomType.OnValueChanged += ActiveRoomTypeOnChanged;
         }
 
-        private void RoomTypeGameEventOnRaise(RoomTypeSO roomType)
+        private void ActiveRoomTypeOnChanged(RoomTypeSO roomType)
         {
             _roomTypeSO = roomType;
         }
