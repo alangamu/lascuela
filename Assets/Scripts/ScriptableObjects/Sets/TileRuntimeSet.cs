@@ -123,7 +123,9 @@ namespace Lascuela.Scripts.ScriptableObjects.Sets
 
         private bool IsUnderMinSize(List<ITile> tiles)
         {
-            return tiles.Count < _activeRoomType.Value.MinSizeX * _activeRoomType.Value.MinSizeZ;
+            return (tiles.Count < _activeRoomType.Value.MinSizeX * _activeRoomType.Value.MinSizeZ) 
+                || (_firstTilePreview.X == _secondTilePreview.X) 
+                || (_firstTilePreview.Z == _secondTilePreview.Z);
         }
     }
 }

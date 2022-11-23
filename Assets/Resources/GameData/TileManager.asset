@@ -12,3 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a97e705448c01b4d95f5c28d3a0f2eb, type: 3}
   m_Name: TileManager
   m_EditorClassIdentifier: 
+  _disabledWallMaterial: {fileID: 2100000, guid: 4cbbf93549fa3c346b136505747b6db5,
+    type: 2}
+  _activeRoomType: {fileID: 11400000, guid: 45248811ef99fb94d86e0d4844a1a392, type: 2}
+  _gridSizeX: {fileID: 11400000, guid: ae16bec30f83e6f40b082c8a43afa8bb, type: 2}
+  _gridSizeZ: {fileID: 11400000, guid: 16cdae4b429dd74419ae94949ce20bf8, type: 2}
