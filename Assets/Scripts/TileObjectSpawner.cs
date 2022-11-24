@@ -14,6 +14,8 @@ namespace Lascuela.Scripts
         [SerializeField]
         private GameEvent _nextRoomObjectActivationEvent;
         [SerializeField]
+        private GameEvent _roomReadyToBuildEvent;
+        [SerializeField]
         private IntVariable _gridSizeX;
         [SerializeField]
         private IntVariable _gridSizeZ;
@@ -36,11 +38,18 @@ namespace Lascuela.Scripts
             TryGetComponent(out _wallController);
 
             _activeRoomObject.OnValueChanged += ActiveRoomObjectOnValueChanged;
+            _roomReadyToBuildEvent.OnRaise += RoomReadyToBuildEventOnRaise;
         }
 
         private void OnDisable()
         {
             _activeRoomObject.OnValueChanged -= ActiveRoomObjectOnValueChanged;
+            _roomReadyToBuildEvent.OnRaise -= RoomReadyToBuildEventOnRaise;
+        }
+
+        private void RoomReadyToBuildEventOnRaise()
+        {
+            _isShowingObject = false;
         }
 
         private void ActiveRoomObjectRotationIndexOnValueChanged(int rotationIndex)

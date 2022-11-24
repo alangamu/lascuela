@@ -18,6 +18,8 @@ namespace Lascuela.Scripts
         [SerializeField]
         private GameEvent _nextRoomObjectActivationEvent;
         [SerializeField]
+        private GameEvent _roomReadyToBuildEvent;
+        [SerializeField]
         private string _resourcesPath;
 
         private int _activeRoomObjectIndex;
@@ -41,9 +43,14 @@ namespace Lascuela.Scripts
 
         private void NextRoomObjectActivationEventOnRaise()
         {
-            print($"_activeRoomObjectIndex {_activeRoomObjectIndex}");
-            _activeRoomObject.SetValue(_roomTypeObjects[_activeRoomObjectIndex]);
-            _activeRoomObjectIndex++;
+            if (_roomTypeObjects.Count > _activeRoomObjectIndex)
+            {
+                _activeRoomObject.SetValue(_roomTypeObjects[_activeRoomObjectIndex]);
+                _activeRoomObjectIndex++;
+                return;
+            }
+            _roomReadyToBuildEvent.Raise();
+            _nextRoomObjectActivationEvent.OnRaise -= NextRoomObjectActivationEventOnRaise;
         }
 
         private void SetActiveRoomTypeEventOnRaise(RoomTypeSO roomType)

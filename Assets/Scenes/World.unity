@@ -38610,6 +38610,8 @@ MonoBehaviour:
   _activeRoomObject: {fileID: 11400000, guid: ba8b2f5a0658e1e419a4ef61577b1060, type: 2}
   _nextRoomObjectActivationEvent: {fileID: 11400000, guid: 24337eb98955ab54ab08c8c80cca6919,
     type: 2}
+  _roomReadyToBuildEvent: {fileID: 11400000, guid: 0c22b425f3dfcdb4d9aff5ed81952804,
+    type: 2}
   _resourcesPath: GameData/RoomObjects
 --- !u!4 &1727688265
 Transform:

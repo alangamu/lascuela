@@ -44,7 +44,6 @@ namespace Lascuela.Scripts
 
         private void RotateDoorFrame(int index)
         {
-            print($"TileWallPreview RotateDoorFrame index {index}");
             _doorFrame.transform.rotation = Quaternion.identity;
             _doorFrame.transform.Rotate(new Vector3(0f, index * 90f, 0f));
             HideWall(index);
