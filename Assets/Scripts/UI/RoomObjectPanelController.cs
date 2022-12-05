@@ -42,7 +42,7 @@ namespace Lascuela.Scripts.UI
 
         private void RoomReadyToBuildEventOnRaise()
         {
-            _buildButton.gameObject.SetActive(true);
+            _buildButton.interactable = true;
         }
 
         private void BuildRoom()
@@ -106,6 +106,7 @@ namespace Lascuela.Scripts.UI
             ClearPanel();
             ShowPanel();
             FillPanel(roomType);
+            _buildButton.interactable = false;
         }
     }
 }
