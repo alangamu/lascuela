@@ -20,6 +20,8 @@ namespace Lascuela.Scripts
 
         public bool HasWall { get; private set; }
 
+        public bool IsConstructed { get; private set; }
+
         [SerializeField]
         private TileRuntimeSet _tileManager;
 
@@ -79,6 +81,11 @@ namespace Lascuela.Scripts
         private void OnDisable()
         {
             _tileManager.Remove(this);
+        }
+
+        public void SetConstructed(bool constructed)
+        {
+            IsConstructed = constructed;
         }
     }
 }

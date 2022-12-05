@@ -63,7 +63,10 @@ namespace Lascuela.Scripts
 
         private void ActiveRoomTypeChanged(RoomTypeSO roomType)
         {
-            TileOnSetWallMaterial(roomType.RoomMaterial);
+            if (!_tile.IsConstructed)
+            {
+                TileOnSetWallMaterial(roomType.RoomMaterial);
+            }
         }
     }
 }

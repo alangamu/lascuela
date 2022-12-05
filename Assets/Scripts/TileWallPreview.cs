@@ -38,7 +38,6 @@ namespace Lascuela.Scripts
         [SerializeField]
         private IntVariable _gridSizeZ;
 
-        private Material _wallMaterial;
         private ITile _tile;
         private List<int> _walls;
 
@@ -80,11 +79,6 @@ namespace Lascuela.Scripts
             }
             _walls = new List<int>();
             _doorFrame.SetActive(false);
-        }
-
-        private void TileOnSetWallMaterial(Material wallMaterial)
-        {
-            
         }
 
         private void DoorFrameRotation(int rotationIndex)

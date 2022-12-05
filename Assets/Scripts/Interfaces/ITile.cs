@@ -13,9 +13,11 @@ namespace Lascuela.Scripts.Interfaces
         int X { get; }
         int Z { get; }
         bool IsSelected { get; }
+        bool IsConstructed { get; }
         bool HasWall { get; }
         void Setup(int x, int z);
         void SetRoomSelected(bool select);
+        void SetConstructed(bool constructed);
         void ShowWallPreview();
         void ShowDoorFramePreview();
         void ClearWallPreview();

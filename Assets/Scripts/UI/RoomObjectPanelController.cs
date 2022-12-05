@@ -1,6 +1,8 @@
 ﻿using Lascuela.Scripts.ScriptableObjects;
+using Lascuela.Scripts.ScriptableObjects.Events;
 using Lascuela.Scripts.ScriptableObjects.Variables;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Lascuela.Scripts.UI
 {
@@ -8,6 +10,8 @@ namespace Lascuela.Scripts.UI
     {
         [SerializeField]
         private Transform _root;
+        [SerializeField]
+        private Transform _buttonsRoot;
 
         [SerializeField]
         private string _resourcesPath;
@@ -17,6 +21,14 @@ namespace Lascuela.Scripts.UI
 
         [SerializeField]
         private RoomTypeVariable _activeRoomType;
+        [SerializeField]
+        private GameEvent _roomReadyToBuildEvent;
+        [SerializeField]
+        private GameEvent _buildRoomEvent;
+        [SerializeField]
+        private Button _buildButton;
+        [SerializeField]
+        private Button _cancelButton;
 
         public void HidePanel()
         {
@@ -28,6 +40,23 @@ namespace Lascuela.Scripts.UI
             _root.gameObject.SetActive(true);
         }
 
+        private void RoomReadyToBuildEventOnRaise()
+        {
+            _buildButton.gameObject.SetActive(true);
+        }
+
+        private void BuildRoom()
+        {
+            _buildRoomEvent.Raise();
+            HidePanel();
+        }
+
+        private void Awake()
+        {
+            _buildButton.onClick.AddListener(BuildRoom);
+            _cancelButton.onClick.AddListener(HidePanel);
+        }
+
         private void Start()
         {
             ClearPanel();
@@ -36,7 +65,7 @@ namespace Lascuela.Scripts.UI
 
         private void ClearPanel()
         {
-            foreach (Transform item in _root)
+            foreach (Transform item in _buttonsRoot)
             {
                 Destroy(item.gameObject);
             }
@@ -50,7 +79,7 @@ namespace Lascuela.Scripts.UI
             {
                 if (item.RoomTypes.Contains(roomType))
                 {
-                    GameObject roomTypeButton = Instantiate(_roomObjectButtonPrefab, _root);
+                    GameObject roomTypeButton = Instantiate(_roomObjectButtonPrefab, _buttonsRoot);
 
                     if (roomTypeButton.TryGetComponent(out RoomObjectButtonController roomTypeButtonController))
                     {
@@ -63,11 +92,13 @@ namespace Lascuela.Scripts.UI
         private void OnEnable()
         {
             _activeRoomType.OnValueChanged += ActiveRoomTypeOnChanged;
+            _roomReadyToBuildEvent.OnRaise += RoomReadyToBuildEventOnRaise;
         }
 
         private void OnDisable()
         {
             _activeRoomType.OnValueChanged -= ActiveRoomTypeOnChanged;
+            _roomReadyToBuildEvent.OnRaise -= RoomReadyToBuildEventOnRaise;
         }
 
         private void ActiveRoomTypeOnChanged(RoomTypeSO roomType)

@@ -1,4 +1,5 @@
 ﻿using Lascuela.Scripts.Interfaces;
+using Lascuela.Scripts.ScriptableObjects.Events;
 using Lascuela.Scripts.ScriptableObjects.Variables;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,6 +17,8 @@ namespace Lascuela.Scripts.ScriptableObjects.Sets
         private IntVariable _gridSizeX;
         [SerializeField]
         private IntVariable _gridSizeZ;
+        [SerializeField]
+        private GameEvent _buildRoomEvent;
 
         private ITile _firstTilePreview;
         private ITile _secondTilePreview;
@@ -32,7 +35,11 @@ namespace Lascuela.Scripts.ScriptableObjects.Sets
 
             foreach (var item in Items)
             {
-                item.ClearWallPreview();
+                if (!item.IsConstructed)
+                {
+                    item.ClearWallPreview();
+                }
+
                 item.SetRoomSelected(false);
             }
 
@@ -68,12 +75,19 @@ namespace Lascuela.Scripts.ScriptableObjects.Sets
 
             foreach (var item in tiles)
             {
+                if (item.IsConstructed)
+                {
+                    wallMaterial = _disabledWallMaterial;
+                }
                 item.SetRoomSelected(true);
             }
             foreach (var item in tiles)
             {
-                item.SetWallMaterial(wallMaterial);
-                item.ShowWallPreview();
+                if (!item.IsConstructed)
+                {
+                    item.SetWallMaterial(wallMaterial);
+                    item.ShowWallPreview();
+                }
             }
         }
 
@@ -126,6 +140,28 @@ namespace Lascuela.Scripts.ScriptableObjects.Sets
             return (tiles.Count < _activeRoomType.Value.MinSizeX * _activeRoomType.Value.MinSizeZ) 
                 || (_firstTilePreview.X == _secondTilePreview.X) 
                 || (_firstTilePreview.Z == _secondTilePreview.Z);
+        }
+
+        private void OnEnable()
+        {
+            _buildRoomEvent.OnRaise += BuildRoomEventOnRaise;
+        }
+
+        private void OnDisable()
+        {
+            _buildRoomEvent.OnRaise -= BuildRoomEventOnRaise;
+        }
+
+        private void BuildRoomEventOnRaise()
+        {
+            List<ITile> tiles = new();
+            tiles = Items.FindAll(x => x.IsSelected);
+
+            foreach (ITile tile in tiles)
+            {
+                tile.SetRoomSelected(false);
+                tile.SetConstructed(true);
+            }
         }
     }
 }

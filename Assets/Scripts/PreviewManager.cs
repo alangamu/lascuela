@@ -32,13 +32,11 @@ namespace Lascuela.Scripts
             _roomTypeObjects = new List<RoomObjectSO>();
 
             _activeRoomType.OnValueChanged += SetActiveRoomTypeEventOnRaise;
-            _nextRoomObjectActivationEvent.OnRaise += NextRoomObjectActivationEventOnRaise;
         }
 
         private void OnDisable()
         {
             _activeRoomType.OnValueChanged -= SetActiveRoomTypeEventOnRaise;
-            _nextRoomObjectActivationEvent.OnRaise -= NextRoomObjectActivationEventOnRaise;
         }
 
         private void NextRoomObjectActivationEventOnRaise()
@@ -58,6 +56,7 @@ namespace Lascuela.Scripts
             _roomTypeObjects = new List<RoomObjectSO>();
             StartCoroutine(SetIsShowingPreview());
             _activeRoomObjectIndex = 0;
+            _nextRoomObjectActivationEvent.OnRaise += NextRoomObjectActivationEventOnRaise;
 
             foreach (RoomObjectSO item in _roomObjects)
             {
