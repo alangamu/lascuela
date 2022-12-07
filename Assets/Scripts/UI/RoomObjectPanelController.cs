@@ -12,13 +12,10 @@ namespace Lascuela.Scripts.UI
         private Transform _root;
         [SerializeField]
         private Transform _buttonsRoot;
-
         [SerializeField]
         private string _resourcesPath;
-        
         [SerializeField]
         private GameObject _roomObjectButtonPrefab;
-
         [SerializeField]
         private RoomTypeVariable _activeRoomType;
         [SerializeField]

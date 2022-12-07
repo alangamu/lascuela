@@ -58,7 +58,6 @@ namespace Lascuela.Scripts
             ChangeWallsMaterial(_interiorWallsMeshes, _wallBaseMaterial);
 
             _doorFrameInteriorMesh.material = _wallBaseMaterial;
-            _doorFrameExteriorMesh.material = _wallBaseMaterial;
         }
 
         private void ActiveRoomTypeChanged(RoomTypeSO roomType)
