@@ -1,5 +1,6 @@
 ﻿using Lascuela.Scripts.Interfaces;
 using Lascuela.Scripts.ScriptableObjects.Events;
+using Lascuela.Scripts.ScriptableObjects.Sets;
 using Lascuela.Scripts.ScriptableObjects.Variables;
 using UnityEngine;
 
@@ -8,61 +9,34 @@ namespace Lascuela.Scripts
     public class Test : MonoBehaviour
     {
         [SerializeField]
-        private Transform _target;
+        private StudentRuntimeSet _students;
         [SerializeField]
-        private GameObject _kid;
-
-        [SerializeField]
-        private BoolVariable _isSowingPreview;
-
-        [SerializeField]
-        private Desk _desk;
-
-        [SerializeField]
-        private int _x;
-
-        [SerializeField]
-        private int _z;
-
-        [SerializeField]
-        private bool _isBuildingRight;
-
-        [SerializeField]
-        private bool _isBuildingUp;
-
-        [SerializeField]
-        private GameEvent _constructRoom;
-
-        private IMovementController _movementController;
+        private GameEvent _goToClassroomEvent;
 
         private void OnEnable()
         {
-            //_constructRoom.OnRaise += ConstructRoomOnRaise;
+            _goToClassroomEvent.OnRaise += GoToClassroomOnRaise;
         }
 
         private void OnDisable()
         {
-            //_constructRoom.OnRaise -= ConstructRoomOnRaise;
+            _goToClassroomEvent.OnRaise -= GoToClassroomOnRaise;
         }
 
-        private void ConstructRoomOnRaise()
+        private void GoToClassroomOnRaise()
         {
-            
+            _students.GoToClassroom();
         }
 
         private void OnGUI()
         {
-            if (GUILayout.Button("Start Walk"))
+            if (GUILayout.Button("Go To Classroom"))
             {
-                if (_kid.TryGetComponent(out _movementController))
-                {
-                    _movementController.SetDestination(_target.position);
-                }
+                _goToClassroomEvent.Raise();
             }
 
             if (GUILayout.Button("Go Sit"))
             {
-                _desk.SitPerson(_kid);
             }
         }
 
@@ -70,7 +44,7 @@ namespace Lascuela.Scripts
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                _isSowingPreview.SetValue(!_isSowingPreview.Value);
+
             }
         }
     }

@@ -1,15 +1,16 @@
-﻿using Lascuela.Scripts.ScriptableObjects.Events;
+﻿using Lascuela.Scripts.Interfaces;
+using Lascuela.Scripts.ScriptableObjects.Events;
 using UnityEngine;
 
 namespace Lascuela.Scripts
 {
     public class StudentBrain : MonoBehaviour
+
     {
         [SerializeField]
         private GameEvent _startClassEvent;
         [SerializeField]
         private GameEvent _endClassEvent;
-
 
         [SerializeField]
         private Desk _desk;
@@ -23,6 +24,7 @@ namespace Lascuela.Scripts
         {
             _startClassEvent.OnRaise += StartClassEventOnRaise;
             _endClassEvent.OnRaise += EndClassEventOnRaise;
+            //TryGetComponent(out _student);
         }
 
         private void OnDisable()
